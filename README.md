@@ -17,3 +17,6 @@
 
 ![Preview.](https://github.com/tanapon395/SA-Example/blob/master/preview.png?raw=true)
 
+### Insert Data Complete
+
+![Insert Complete.](https://github.com/tanapon395/SA-Example/blob/master/insert.PNG?raw=true)
