@@ -1,0 +1,45 @@
+<h2 style = "text-align:center">Interaction for Watched Video</h2>  
+
+<mat-grid-list cols="1" rowHeight="5:1">
+    <mat-grid-tile>
+        <mat-card class="example-card">
+            <mat-card-content>
+              <form class="example-form">
+                <table class="example-full-width" cellspacing="0">
+                  <tr>
+                    <td>            
+                    <form>
+                        <mat-form-field>
+                          <mat-select placeholder="Viewer" [(ngModel)]="views.usernameSelect" name="username">
+                            <mat-option *ngFor="let watch of watchs" [value]="watch.username">
+                              {{watch.username}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>   
+                    </form>
+                    </td>
+                  </tr>
+                  <tr>
+                  <td>         
+                    <form>
+                        <mat-form-field>
+                          <mat-select placeholder="Video" [(ngModel)]="views.videoSelect" name="food">
+                            <mat-option *ngFor="let video of videos" [value]="video.code">
+                              {{video.title}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>   
+                    </form>
+                </td>
+                </tr></table>
+              </form>
+              <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button (click)="save()" color="primary">Save</button>
+              <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+            </mat-card-actions>
+          </mat-card>
+    </mat-grid-tile>    
+  </mat-grid-list>
+
