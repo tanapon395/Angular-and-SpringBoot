@@ -1,0 +1,51 @@
+<mat-grid-list cols="5" rowHeight="3:1">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile [colspan] = "3"> 
+    <form>
+      <mat-form-field>
+        <mat-select placeholder="User" [(ngModel)]="usernameSelect" name="username">
+          <mat-option *ngFor="let user of users" [value]="user.username">
+            {{user.username}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>   
+  </form>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="4" rowHeight="4:1">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile [colspan] = "2">
+    <h2>Play List</h2>
+    <button style = "margin-left: 20px" mat-raised-button (click)="openDialog()" color="primary">Create New</button>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+
+<table mat-table [dataSource]="playlists" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="no">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element ; let i = index">{{i+1}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef> Username. </th>
+    <td mat-cell *matCellDef="let element"> {{element.adder.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Playlist Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef style = "width:10%"> Manage</th>
+    <td mat-cell *matCellDef="let element"> <button mat-raised-button color="warn" (click)="manageTeam()">Edit</button> </td>    
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: dataColumns;"></tr>
+</table>
+  

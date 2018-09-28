@@ -11,16 +11,25 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { WatchedVideoComponent } from './watched-video/watched-video.component';
 import { WatchService } from './shared/watch/watch.service';
+import { PlaylistComponent } from './playlist/playlist.component';
+import { CreateComponent } from './create/create.component';
+import { TeamManageComponent } from './team-manage/team-manage.component';
 
 const appRoutes: Routes = [
   { path: '',  redirectTo: '/watched', pathMatch: 'full' },
-  { path: 'watched', component: WatchedVideoComponent }
+  { path: 'watched', component: WatchedVideoComponent },
+  { path: 'playlist', component: PlaylistComponent },
+  { path: 'create_playlist', component: CreateComponent },
+  { path: 'team-manage', component: TeamManageComponent },
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    WatchedVideoComponent
+    WatchedVideoComponent,
+    PlaylistComponent,
+    CreateComponent,
+    TeamManageComponent
   ],
   imports: [
     BrowserModule,
