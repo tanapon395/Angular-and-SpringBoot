@@ -26,4 +26,12 @@ export class PlaylistService {
     this.user.next(username);
   }
 
+  getVideo(): Observable<any> {
+    return this.http.get(this.API + '/Videos');
+  }
+
+  getPlaylistId(id): Observable<any> {
+    return this.http.get(this.API + '//Playlists/getdata/' + id);
+  }
+
 }

@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Router} from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { CreateComponent } from '../create/create.component';
-import { PlaylistService } from '../shared/watch/playlist.service';
+import { PlaylistService } from '../shared/playlist/playlist.service';
 
 
 @Component({
@@ -48,8 +48,8 @@ export class PlaylistComponent implements OnInit {
 
   }
 
-  manageTeam(): void {
-    this.router.navigate(['team-manage']);
+  manageTeam(element): void {
+    this.router.navigate(['manage-playlist/' + element.id]);
   }
 
 }

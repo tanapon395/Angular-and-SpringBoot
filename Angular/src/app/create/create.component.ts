@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import { PlaylistService } from '../shared/watch/playlist.service';
+import { PlaylistService } from '../shared/playlist/playlist.service';
 import { MatDialogRef } from '@angular/material';
 
 @Component({

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TeamManageComponent } from './team-manage.component';
+import { PlaylistManageComponent } from './playlist-manage.component';
 
 describe('TeamManageComponent', () => {
-  let component: TeamManageComponent;
-  let fixture: ComponentFixture<TeamManageComponent>;
+  let component: PlaylistManageComponent;
+  let fixture: ComponentFixture<PlaylistManageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TeamManageComponent ]
+      declarations: [ PlaylistManageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TeamManageComponent);
+    fixture = TestBed.createComponent(PlaylistManageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
