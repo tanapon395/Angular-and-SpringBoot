@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import { PlaylistService } from '../shared/playlist/playlist.service';
 import { ActivatedRoute } from '@angular/router';
 import { map, filter } from 'rxjs/operators';
+import { HttpClient} from '@angular/common/http';
 
 export interface VideoElement {
   no: number;
@@ -22,12 +23,22 @@ export class PlaylistManageComponent implements OnInit {
   videos: Array<any>;
   selection = new SelectionModel<VideoElement>(true, []);
 
-  id: number;
+  private id: number;
   private sub: any;
 
-  playlist: Array<any>;
+  private listCode: any[] = [];
 
-  constructor(private router: Router, private playlistService: PlaylistService, private rout: ActivatedRoute) { }
+  selectVideo: Array<any>;
+
+  private playlist = {
+    id : '',
+    name : '',
+    adder : [],
+    listVideo : []
+  };
+
+  constructor(private httpClient: HttpClient, private router: Router, private playlistService: PlaylistService,
+    private rout: ActivatedRoute) { }
 
   ngOnInit() {
     this.sub = this.rout.params.subscribe(params => {
@@ -48,16 +59,17 @@ export class PlaylistManageComponent implements OnInit {
   isAllSelected() {
     const numSelected = this.selection.selected.length;
     const numRows = this.videos.length;
-    this.videos[numSelected - 1].playlsitId = this.id;
-    console.log( this.videos);
+    if ( numSelected !== 0) {
+      this.videos[numSelected - 1].playlsitId = this.id;
+    }
     return numSelected === numRows;
   }
 
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
-        this.selection.clear() :
-        this.videos.forEach(row => this.selection.select(row));
+    this.selection.clear() :
+    this.videos.forEach(row => this.selection.select(row));
   }
 
   cancel() {
@@ -65,6 +77,26 @@ export class PlaylistManageComponent implements OnInit {
   }
 
   save() {
-
+    this.selectVideo = this.selection.selected;
+    if (this.selectVideo.length === 0 ) {
+      alert('กรุณาเลือก video ใน playlist');
+    } else {
+      this.listCode = [];
+      this.selectVideo.forEach(row => {
+       if (row.playlsitId) {
+        this.listCode.push(row.code);
+       }
+      });
+      console.log(this.listCode.toString());
+      this.httpClient.post('http://localhost:8080/Playlist/addVideo/' + this.id + '/' + this.listCode.toString(), this.videos)
+      .subscribe(
+          data => {
+              console.log('PUT Request is successful', data);
+          },
+          error => {
+              console.log('Rrror', error);
+          }
+      );
+    }
   }
 }

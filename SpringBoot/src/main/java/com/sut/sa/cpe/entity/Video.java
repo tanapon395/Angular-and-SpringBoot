@@ -52,6 +52,4 @@ public class Video {
 // @JsonBackReference
 // private Playlist playlistId;
 
-
-
 }

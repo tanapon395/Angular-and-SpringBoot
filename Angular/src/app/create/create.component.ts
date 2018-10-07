@@ -23,7 +23,7 @@ export class CreateComponent implements OnInit {
     if (this.playlistName === '' && this.userName === '') {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     } else {
-      this.httpClient.post('http://localhost:8080/Playlsit/new' + '/' +  this.userName + '/' + this.playlistName, this.userName)
+      this.httpClient.post('http://localhost:8080/Playlist/new' + '/' +  this.userName + '/' + this.playlistName, this.userName)
       .subscribe(
           data => {
               console.log('PUT Request is successful', data);

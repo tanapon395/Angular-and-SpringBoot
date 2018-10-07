@@ -14,6 +14,7 @@ import { WatchService } from './shared/watch/watch.service';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { CreateComponent } from './create/create.component';
 import { PlaylistManageComponent } from './playlist-manage/playlist-manage.component';
+import { PlaylistViewComponent } from './playlist-view/playlist-view.component';
 
 const appRoutes: Routes = [
   { path: '',  redirectTo: '/watched', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'playlist', component: PlaylistComponent },
   { path: 'create-playlist', component: CreateComponent },
   { path: 'manage-playlist/:id', component: PlaylistManageComponent },
+  { path: 'view-playlist/:id', component: PlaylistViewComponent },
 ];
 
 @NgModule({
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     WatchedVideoComponent,
     PlaylistComponent,
     CreateComponent,
-    PlaylistManageComponent
+    PlaylistManageComponent,
+    PlaylistViewComponent
   ],
   imports: [
     BrowserModule,

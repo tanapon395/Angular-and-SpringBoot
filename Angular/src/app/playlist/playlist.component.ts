@@ -14,7 +14,7 @@ export class PlaylistComponent implements OnInit {
 
   animal: string;
   name: string;
-  dataColumns: string[] = ['no', 'name', 'username', 'edit'];
+  dataColumns: string[] = ['no', 'name', 'username', 'add', 'view'];
 
   users: Array<any>;
   playlists: Array<any>;
@@ -50,6 +50,10 @@ export class PlaylistComponent implements OnInit {
 
   manageTeam(element): void {
     this.router.navigate(['manage-playlist/' + element.id]);
+  }
+
+  viewPlaylist(element): void {
+    this.router.navigate(['view-playlist/' + element.id]);
   }
 
 }

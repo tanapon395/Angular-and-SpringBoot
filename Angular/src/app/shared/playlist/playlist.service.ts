@@ -31,7 +31,6 @@ export class PlaylistService {
   }
 
   getPlaylistId(id): Observable<any> {
-    return this.http.get(this.API + '//Playlists/getdata/' + id);
+    return this.http.get(this.API + '/Playlists/getdata/' + id);
   }
-
 }

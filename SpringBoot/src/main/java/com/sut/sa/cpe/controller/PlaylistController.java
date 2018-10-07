@@ -19,7 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.util.Optional;
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class PlaylistController {
 
@@ -39,6 +43,12 @@ public class PlaylistController {
          return playlistRepository.findAll().stream()
                  .collect(Collectors.toList());
      }
+
+     @GetMapping("/Playlists/getdata/{PlaylistId}")
+    public Optional<Playlist> Playlists(@PathVariable Long PlaylistId) {
+        Optional<Playlist> V = playlistRepository.findById(PlaylistId);
+        return V;
+    }
 
     // ทดสอบโดย ใช้คำสั่ง curl -iX POST  http://localhost:8080/Playlist/new/Sitthichai/testPlaylist
 
