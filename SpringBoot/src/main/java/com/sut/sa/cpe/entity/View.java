@@ -30,7 +30,7 @@ public class View {
     private @NonNull Timestamp watchedTime;
     
     @ManyToOne
-    private Video  watchedVideo;
+    private Video watchedVideo;
 
     @ManyToOne
     private User watchingUser;

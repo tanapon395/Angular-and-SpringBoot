@@ -54,12 +54,10 @@ public class PlaylistController {
 
      @PostMapping("/Playlist/new/{adder}/{namePlaylist}")
      public Playlist newPlaylist(@PathVariable String namePlaylist,@PathVariable String adder) {
-
         Playlist newPlaylist = new Playlist();
         User userPlaylsit = userRepository.findByUsername(adder);
         newPlaylist.setAdder(userPlaylsit);
-        newPlaylist.setName(namePlaylist);
-        
+        newPlaylist.setName(namePlaylist);        
 
          return  playlistRepository.save(newPlaylist); // บันทึก Objcet ชื่อ Playlist
      }
@@ -76,10 +74,12 @@ public class PlaylistController {
 
             for (String code : listCode) {   
                 video = videoRepository.findByCode(code);
+
                 PL_V newPL_V = new PL_V();  
                 newPL_V.setVideo(video);
                 newPL_V.setPlaylistId(idPlaylist);
                 pl_vRepository.save(newPL_V);
+                
                 playlist.getListVideo().add(newPL_V);
             }
 

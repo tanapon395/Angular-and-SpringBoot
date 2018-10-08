@@ -8,7 +8,7 @@
 
 <table mat-table [dataSource]="videos" class="mat-elevation-z8">
 
-      <!-- Checkbox Column -->
+      
       <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>
           <mat-checkbox (change)="$event ? masterToggle() : null"
@@ -23,14 +23,12 @@
           </mat-checkbox>
         </td>
       </ng-container>
-    
-      <!-- no Column -->
+
       <ng-container matColumnDef="no">
         <th mat-header-cell *matHeaderCellDef> No. </th>
         <td mat-cell *matCellDef="let element ; let i = index">{{i+1}}</td>
-      </ng-container>
-    
-      <!-- Name Column -->
+      </ng-container>    
+     
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
         <td mat-cell *matCellDef="let element">{{element.title}}</td>

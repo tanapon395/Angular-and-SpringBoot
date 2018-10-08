@@ -36,7 +36,7 @@ public class CpeApplication {
                 User user = new User();
                 user.setUsername(userName); // set userName บน Object ชื่อ user
                 userRepository.save(user); // บันทึก Objcet ชื่อ user
-                // new UserController(userRepository).newUser(userName);
+          //      new UserController(userRepository).newUser(userName);
 
                 Video newVideo = new Video(); // สร้าง Object Video
                 Video newVideo2 = new Video(); // สร้าง Object Video
@@ -49,6 +49,7 @@ public class CpeApplication {
                 if (userName == "Sitthichai") {
 
                     userUpper = userRepository.findByUsername(userName);
+
                     code = "O8etN-2fc1c";
                     newVideo.setCode(code); // set code บน Object ชื่อ video
                     newVideo.setUrl("https://www.youtube.com/watch?v=" + code); // set code บน Object ชื่อ video
@@ -135,37 +136,37 @@ public class CpeApplication {
              newPlaylistA.setAdder(userPlaylsitA);
              playlistRepository.save(newPlaylistA);
 
-            //  Playlist playlistA1 = playlistRepository.findById(2); // add video ครั้งที่ 1
-            //  Video addVideoA1 = videoRepository.findByCode("dXi2FDWnySU");
-            //  Video addVideoA2 = videoRepository.findByCode("r4j6H-f9j8Y");
+             Playlist playlistA1 = playlistRepository.findById(2); // add video ครั้งที่ 1
+             Video addVideoA1 = videoRepository.findByCode("dXi2FDWnySU");
+             Video addVideoA2 = videoRepository.findByCode("r4j6H-f9j8Y");
             
-            //  PL_V newPL_V4 = new PL_V();
-            //  newPL_V4.setVideo(addVideoA1);
-            //  newPL_V4.setPlaylistId((long)2);
-            //  pl_vRepository.save(newPL_V4);
-            //  playlistA1.getListVideo().add(newPL_V4);
+             PL_V newPL_V4 = new PL_V();
+             newPL_V4.setVideo(addVideoA1);
+             newPL_V4.setPlaylistId((long)2);
+             pl_vRepository.save(newPL_V4);
+             playlistA1.getListVideo().add(newPL_V4);
 
-            //  PL_V newPL_V5 = new PL_V();
-            //  newPL_V5.setVideo(addVideoA2);
-            //  newPL_V5.setPlaylistId((long)2);
-            //  pl_vRepository.save(newPL_V5);
-            //  playlistA1.getListVideo().add(newPL_V5);
-            //  playlistRepository.save(playlistA1);
+             PL_V newPL_V5 = new PL_V();
+             newPL_V5.setVideo(addVideoA2);
+             newPL_V5.setPlaylistId((long)2);
+             pl_vRepository.save(newPL_V5);
+             playlistA1.getListVideo().add(newPL_V5);
+             playlistRepository.save(playlistA1);
 
-            //  Playlist playlistA2 = playlistRepository.findById(2);
-            //  Video addVideoA3 = videoRepository.findByCode("O8etN-2fc1c"); // add video ครั้งที่ 2
+             Playlist playlistA2 = playlistRepository.findById(2);
+             Video addVideoA3 = videoRepository.findByCode("O8etN-2fc1c"); // add video ครั้งที่ 2
 
-            //  PL_V newPL_V6 = new PL_V();
-            //  newPL_V6.setVideo(addVideoA3);
-            //  newPL_V6.setPlaylistId((long)2);
-            //  pl_vRepository.save(newPL_V6);
-            //  playlistA2.getListVideo().add(newPL_V6);
-            //  playlistRepository.save(playlistA2);         
+             PL_V newPL_V6 = new PL_V();
+             newPL_V6.setVideo(addVideoA3);
+             newPL_V6.setPlaylistId((long)2);
+             pl_vRepository.save(newPL_V6);
+             playlistA2.getListVideo().add(newPL_V6);
+             playlistRepository.save(playlistA2);         
 
-            videoRepository.findAll().forEach(System.out::println); // แสดง ข้อมูลทั้งหมดใน Entity video บน Terminal
+           videoRepository.findAll().forEach(System.out::println); // แสดง ข้อมูลทั้งหมดใน Entity video บน Terminal
             commentRepository.findAll().forEach(System.out::println); // แสดง ข้อมูลทั้งหมดใน Entity comment บน Terminal
             userRepository.findAll().forEach(System.out::println); // แสดง ข้อมูลทั้งหมดใน Entity user บน Terminal
-            pl_vRepository.findAll().forEach(System.out::println); // แสดง ข้อมูลทั้งหมดใน Entity playlist บน
+           pl_vRepository.findAll().forEach(System.out::println); // แสดง ข้อมูลทั้งหมดใน Entity playlist บน
             playlistRepository.findAll().forEach(System.out::println); // แสดง ข้อมูลทั้งหมดใน Entity playlist บน
                                                                        // Terminal
 

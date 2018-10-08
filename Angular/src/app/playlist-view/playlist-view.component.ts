@@ -45,6 +45,11 @@ export class PlaylistViewComponent implements OnInit {
     });
   }
 
+  deletePlaylist(element) {
+    alert('ลองไปทำ Delete Data ID = ' + element.video.id + 'and PlaylistId = ' + this.id);
+  }
+
+
   youtubeURL(code) {
   this.url = 'https://www.youtube.com/embed/' + code ;
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.url);

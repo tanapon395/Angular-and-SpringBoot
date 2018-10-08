@@ -92,6 +92,7 @@ export class PlaylistManageComponent implements OnInit {
       .subscribe(
           data => {
               console.log('PUT Request is successful', data);
+              this.router.navigate(['view-playlist/' + this.id]);
           },
           error => {
               console.log('Rrror', error);

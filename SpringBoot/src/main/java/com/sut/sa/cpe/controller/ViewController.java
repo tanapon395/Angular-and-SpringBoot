@@ -46,7 +46,8 @@ public class ViewController {
 
     @PostMapping("/Views/{userName}/{videoCode}")
     public View newView(View newView,@PathVariable String userName,@PathVariable String videoCode) {   
-                 
+        //View newView = new View();
+        
         User     watchingUser = userRepository.findByUsername(userName);
         Video    watchedVideo = videoRepository.findByCode(videoCode);
 

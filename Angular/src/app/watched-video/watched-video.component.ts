@@ -29,6 +29,9 @@ export class WatchedVideoComponent implements OnInit {
     });
     this.watchService.getVideo().subscribe(data => {
       this.videos = data;
+      this.videos.forEach(row => {
+        console.log(row.title);
+       });
       console.log(this.videos);
     });
   }
@@ -37,7 +40,8 @@ export class WatchedVideoComponent implements OnInit {
     if (this.views.usernameSelect === '' || this.views.videoSelect === '' ) {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     } else {
-      this.httpClient.post('http://localhost:8080/Views/' + this.views.usernameSelect + '/' + this.views.videoSelect, this.views)
+      this.httpClient.post('http://localhost:8080/Views/' + this.views.usernameSelect + '/' + this.views.videoSelect,
+      this.views)
       .subscribe(
           data => {
               console.log('PUT Request is successful', data);
