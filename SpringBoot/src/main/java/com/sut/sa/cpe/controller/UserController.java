@@ -57,23 +57,8 @@ public class UserController {
     //%7BuserName%3Ajohnny%7D  not decode
 
      @PostMapping("/Regit")
-     public void newUser(@RequestBody String dataUser) throws JsonParseException, IOException {
-
-        final String decoded = URLDecoder.decode(dataUser, "UTF-8");        // DECODE UTF8
-        dataUser = decoded; //.substring(0, decoded.length() - 1);              // Remove last Char at String
-
-        User newUser = new User();
-
-         if(dataUser.charAt(0) == '{'){         // Check Json 
-
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode actualObj = mapper.readTree(dataUser);
-
-            JsonNode jsonNode = actualObj.get("userName");
-            newUser.setUsername(jsonNode.textValue());
+     public void newUser(@RequestBody User newUser){
             userRepository.save(newUser);
-        }
-         
      }
 
     @GetMapping("/Users")

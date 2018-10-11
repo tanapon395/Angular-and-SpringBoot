@@ -71,15 +71,12 @@ public class PlaylistController {
         Playlist playlist = playlistRepository.findById(idPlaylist);
         Video video;
                  
-
             for (String code : listCode) {   
                 video = videoRepository.findByCode(code);
-
                 PL_V newPL_V = new PL_V();  
                 newPL_V.setVideo(video);
                 newPL_V.setPlaylistId(idPlaylist);
                 pl_vRepository.save(newPL_V);
-                
                 playlist.getListVideo().add(newPL_V);
             }
 

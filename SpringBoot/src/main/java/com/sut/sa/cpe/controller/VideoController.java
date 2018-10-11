@@ -45,27 +45,9 @@ class VideoController {
     // {\"code\":\"r4j6H-f9j8Y\",\"url\":\"https://www.youtube.com/watch?v=r4j6H-f9j8Y\",\"title\":\"Lanla(LaLaLa)byJanChan\"} http://localhost:8080/UpVideo/Tanapon
 
     @PostMapping("/UpVideo/{userName}")
-    public void newVideo(@RequestBody String textVideo, @PathVariable String userName)
-            throws JsonParseException, IOException {
-
-        final String decoded = URLDecoder.decode(textVideo, "UTF-8"); // DECODE UTF8
-        textVideo = decoded; // .substring(0, decoded.length() - 1); // Remove last Char at String
-
-        Video newVideo = new Video();
-
-        if (textVideo.charAt(0) == '{') { // Check Json
-
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode actualObj = mapper.readTree(textVideo);
-
-            newVideo.setCode(actualObj.get("code").textValue());
-            newVideo.setUrl(actualObj.get("url").textValue());
-            newVideo.setTitle(actualObj.get("title").textValue());
-
+    public Video newVideo(@RequestBody Video newVideo, @PathVariable String userName) {
             User userUpper = userRepository.findByUsername(userName);
             newVideo.setVideoUser(userUpper); // get User Id เพื่อ set User Id บน Object ชื่อ video
-
-            videoRepository.save(newVideo); // บันทึก Objcet ชื่อ video
+          return  videoRepository.save(newVideo); // บันทึก Objcet ชื่อ video
         }
     }
-}
