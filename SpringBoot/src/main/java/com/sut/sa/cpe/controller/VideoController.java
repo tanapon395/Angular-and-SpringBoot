@@ -42,7 +42,15 @@ class VideoController {
     }
 
     // curl -iX POST -H 'Content-Type: application/json' -d
-    // {\"code\":\"r4j6H-f9j8Y\",\"url\":\"https://www.youtube.com/watch?v=r4j6H-f9j8Y\",\"title\":\"Lanla(LaLaLa)byJanChan\"} http://localhost:8080/UpVideo/Tanapon
+    // Request URL 
+    // http://localhost:8080/UpVideo/Tanapon
+
+    // RequestBody 
+    // {
+    // "code":"r4j6H-f9j8Y",
+    // "url":"https://www.youtube.com/watch?v=r4j6H-f9j8Y",
+    // "title":"Lanla(LaLaLa)byJanChan"
+    // }
 
     @PostMapping("/UpVideo/{userName}")
     public Video newVideo(@RequestBody Video newVideo, @PathVariable String userName) {
